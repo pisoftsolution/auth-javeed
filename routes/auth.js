@@ -3,6 +3,7 @@ const User = require("../model/user");
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const verify  = require("../middleware/verify");
 router.get('/login',(req,res)=>{
     User.findOne({email:req.body.email})
     .then(user=>{
@@ -56,6 +57,9 @@ router.post('/signup',(req,res)=>{
 
         }
     })   
-})
+});
+
+router.get('/jwt-test' ,verify.verify, (req,res)=>{
+    res.status(200).json({msg:"verify working"})
+});
 module.exports = router
- 
