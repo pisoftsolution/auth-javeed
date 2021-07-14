@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const authroute = require('./routes/auth'); 
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
 
 const app = express();
 const dbURI="mongodb://localhost/authentication";
