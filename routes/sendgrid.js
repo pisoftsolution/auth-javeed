@@ -24,7 +24,7 @@ router.get('/email-otp',(req,res)=>{
         res.status(200).send({msg:"OTP generated successfully"})
     })
     .catch(err=>{
-        console.error(err);
+        console.error(err.response.body);
         res.status(400).send({msg:"Otp not generated"})
     })
 })

@@ -11,7 +11,8 @@
     "init": "^0.1.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.2",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "twilio": "^3.65.0"
   },
   "devDependencies": {},
   "scripts": {
