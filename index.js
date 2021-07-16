@@ -3,7 +3,9 @@ const mongoose = require("mongoose");
 const authroute = require('./routes/auth'); 
 const sendgridroute = require('./routes/sendgrid');
 const twilioroute = require('./routes/twilio');
+const blogsRoute = require('./routes/blogs');
 const app = express();
+
 
 const dbURI="mongodb://localhost/authentication";
 app.use(express.json());
@@ -13,6 +15,7 @@ app.use(express.urlencoded());
 app.use('/api/auth', authroute);
 app.use('/api/sendgrid', sendgridroute);
 app.use('/api/twilio', twilioroute);
+app.use('/api/blogs', blogsRoute);
 mongoose.connect(dbURI, { useNewUrlParser:true , useUnifiedTopology:true });
 const db = mongoose.connection;
 db.on("error" , (err)=>{console.error(err)});
