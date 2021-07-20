@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 
 const app=express();
 
-const dbURI="mongodb://localhost/authentication";
+const dbURI="mongodb+srv://root:javeed@cluster0.fxudz.mongodb.net/test";
 
 app.use(express.json());
 app.use(express.urlencoded());
@@ -23,6 +23,6 @@ const db= mongoose.connection;
 db.on("error",(err)=>{console.error(err)})
 db.once("open",()=>{console.log("Mongodb connected successfully")});
 
-app.listen(8080,()=>{
-    console.log("server started 8080");
+app.listen(8089,()=>{
+    console.log("server started 8089");
 })
