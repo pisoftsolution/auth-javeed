@@ -1,25 +1,27 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const authroute = require('./routes/auth'); 
-const sendgridroute = require('./routes/sendgrid');
-const twilioroute = require('./routes/twilio');
-const blogsRoute = require('./routes/blogs');
-const app = express();
+const express= require("express");  
+const mongoose =require("mongoose");
+const authroute  =require('./routes/auth');
+const sendgridRoute  =require('./routes/sendgrid');
+const twilioRoute = require ('./routes/twilio');
+const blogsRoute = require ('./routes/blogs');
+const jwt = require("jsonwebtoken"); 
 
+const app=express();
 
-const dbURI="mongodb://localhost/authentication";
+const dbURI="mongodb+srv://root:javeed@cluster0.fxudz.mongodb.net/Project&0?retryWrites=true&w=majority";
 app.use(express.json());
 app.use(express.urlencoded());
- 
-//To connect to the db
-app.use('/api/auth', authroute);
-app.use('/api/sendgrid', sendgridroute);
-app.use('/api/twilio', twilioroute);
-app.use('/api/blogs', blogsRoute);
-mongoose.connect(dbURI, { useNewUrlParser:true , useUnifiedTopology:true });
-const db = mongoose.connection;
-db.on("error" , (err)=>{console.error(err)});
-db.once("open", ()=> {console.log("mongo DB connected right here")});
-app.listen( 8080 , ()=>{
-    console.log("server started at 8080");
+app.use('/api/auth',authroute);
+app.use('/api/sendgrid',sendgridRoute);
+app.use('/api/twilio',twilioRoute);
+app.use('/api/Blogs',blogsRoute);
+
+mongoose.connect(dbURI,{useNewUrlParser:true,useUnifiedTopology:true});
+const db= mongoose.connection;
+
+db.on("error",(err)=>{console.error(err)})
+db.once("open",()=>{console.log("Mongodb connected successfully")});
+
+app.listen(8082,()=>{
+    console.log("server started 8082");
 })

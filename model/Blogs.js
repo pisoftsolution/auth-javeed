@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const BlogsSchema = mongoose.Schema({
     author: {
         type:String,

@@ -57,7 +57,7 @@ router.post('/signup',(req,res)=>{
 
         }
     })   
-});
+})
 
 router.get('/jwt-test' ,verify.verify, (req,res)=>{
     res.status(200).json({msg:"verify working"})
