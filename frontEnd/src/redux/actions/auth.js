@@ -1,13 +1,13 @@
 import * as api from "../api";
-import { SIGNUP , LOGIN } from "../constants";
+import { SIGNUP, LOGIN , LOGOUT } from "../constants";
 
 
 
-export const signup = (formData , history) => async (dispatch) =>{
+export const signup = (formData, history) => async (dispatch) => {
     try {
         const { data } = await api.signup(formData);
-        dispatch({type: SIGNUP, data});
-        alert("signup sucessful");
+        dispatch({ type: SIGNUP, data });
+        alert("Signup successful");
         history.push('/login');
         return data;
     } catch (e) {
@@ -17,14 +17,25 @@ export const signup = (formData , history) => async (dispatch) =>{
 };
 
 
-export const login = (formData , history) => async (dispatch) =>{
+export const login = (formData, history) => async (dispatch) => {
     try {
         const { data } = await api.login(formData);
-        dispatch({type: LOGIN, data});
-        alert("Login sucessful");
+        dispatch({ type: LOGIN, data });
+        alert("Login successful");
         history.push('/');
+        localStorage.setItem("token",data.token);
         return data;
     } catch (e) {
+        alert(e?.response?.data?.msg);
+    }
+};
+export const logout = ( history) => async (dispatch) => {
+    try {
+        dispatch({ type: LOGOUT });
+        alert("Logout successful");
+        history.push('/');        
+    } catch (e) {
+        console.log(e);
         alert(e?.response?.data?.msg);
     }
 };

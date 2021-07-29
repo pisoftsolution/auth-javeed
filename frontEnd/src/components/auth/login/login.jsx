@@ -2,7 +2,7 @@ import React,{ useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { login } from "../../../redux/actions/auth";
-import "./login.css";
+
 
 function Login() {
     const initialState = { email:"", password:""};

@@ -1,4 +1,4 @@
-import { SIGNUP , LOGIN } from "../constants";
+import { SIGNUP , LOGIN , LOGOUT } from "../constants";
 
 export default (state = { authData: null }, action) => {
     switch (action.type) {
@@ -13,6 +13,12 @@ export default (state = { authData: null }, action) => {
             return {
                 ...state,
                 authData: action?.data
+            }
+            case LOGOUT:
+            localStorage.clear();
+            return {
+                ...state,
+             
             }
         default:
             return {

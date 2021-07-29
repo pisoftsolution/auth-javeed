@@ -28,7 +28,7 @@ exports.signup = (req,res) => {
                     if (error) {
                         console.error(error);
                         return res.status(400).json({msg: error.message})
-                }
+                    }
                 })
             }
         })
