@@ -124,7 +124,6 @@ exports.changePassword = (req, res) => {
     }
 }
 
-
 exports.test = (req, res) => {
     return res.status(200).json({ msg: "you are authorized" })
 }

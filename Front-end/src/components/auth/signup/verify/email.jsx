@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { emailOtpVerify } from "../../../../redux/actions/verify";
+import { emailOtpVerify , phoneOtp } from "../../../../redux/actions/verify";
 
 
 function Signup() {
@@ -25,14 +25,14 @@ function Signup() {
                     <div>
                         <input
                             name="emailOtp"
-                            type="text"
-                            value={formData.emailOtp}                          
+                            type="text"                                          
                             placeholder="Enter the OTP"
+                            value={formData.emailOtp} 
                             onChange={(e) => {
                                 setFormData({
                                     ...formData,
-                                    [e.target.name]: e.target.value
-                                });
+                                    [e.target.name] : e.target.value
+                                })
                             }}
                             className="input-group"
                         />

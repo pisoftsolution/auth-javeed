@@ -15,7 +15,7 @@ app.use(express.urlencoded());
 app.use(cors());
 app.use('/api/auth' , authRoute);
 app.use('/api/verify' , sgRoute);
-app.use('/api/phone-verify' ,twilio);
+app.use('/api/verify' ,twilio);
 app.use('/api/blog' ,blog);
 
 
