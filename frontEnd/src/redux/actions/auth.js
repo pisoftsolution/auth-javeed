@@ -8,10 +8,10 @@ export const signup = (formData, history) => async (dispatch) => {
         const { data } = await api.signup(formData);
         dispatch({ type: SIGNUP, data });
         alert("Signup successful");
-        history.push('/login');
+        history.push('/verify/email');
         return data;
     } catch (e) {
-        console.log(e);
+        
         alert(e?.response?.data?.msg);
     }
 };

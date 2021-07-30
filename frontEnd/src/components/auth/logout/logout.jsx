@@ -6,25 +6,22 @@ import { logout } from "../../../redux/actions/auth";
 
 function Logout() {
    
-      const dispatch = useDispatch();
-      const history= useHistory();
-      
-  
-      const handleSubmit = (e) => {
-          e.preventDefault();
-          dispatch(logout(history))
-       }
+    const dispatch = useDispatch();
+    const history= useHistory();
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(logout(history))
+    }
     return (
         <>
             <div className="card">
-
                 <div>
                     <button
                         className="btn-sub"
                         type="submit"
-                        onClick={handleSubmit}
-                    >
-                        Logout
+                        onClick={handleSubmit}>Logout
                     </button>
                 </div>
             </div>
