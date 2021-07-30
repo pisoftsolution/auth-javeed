@@ -9,7 +9,7 @@ const sgRoute = require('./routes/sendgrid');
 const twilio = require('./routes/twilio');
 const blog = require('./routes/blog');
 
-const dbURI = "mongodb+srv://root:junaid@cluster0.qxafi.mongodb.net/Project&0?retryWrites=true&w=majority";
+const dbURI = "mongodb+srv://root:javeed@cluster0.fxudz.mongodb.net/test";;
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(cors());
