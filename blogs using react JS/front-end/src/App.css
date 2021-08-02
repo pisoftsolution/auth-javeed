@@ -1,0 +1,118 @@
+form{
+  margin-top: 80px;
+}
+table {
+ justify-content: center;
+  display: inline-table;
+  margin-top: 27px;
+  width: 50%;
+}
+
+td, th {
+  border: 1px solid #292828;
+  text-align: left;
+  padding: 5px;
+}
+.App {
+    text-align: center;
+  }
+  
+  
+  button.btn1  {
+    margin-right: 10px;
+    color: #fff;
+    background-color: #5280d6;
+    padding: 5px;
+    width: 50px;
+    height: 35px;
+}
+button.btn2 {
+  color: #fff;
+    background-color: #dc3545;
+    padding: 5px;
+    width: 50px;
+    height: 35px;
+}
+.userBtn {
+  margin-left: -91vh;
+  padding: 5px;
+  background: rgb(216, 248, 157);
+  height: 30px;
+  
+}
+
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-color: rgba(88, 97, 81, 0.5);
+  top: 0;
+  left: 60;
+  right: 0;
+  bottom: 0;
+}
+  
+.popup_inner {
+  position: absolute;
+  padding: 20px;
+  left: 25%;
+  right: 25%;
+  top: 25%;
+  bottom: 25%;
+  margin: auto;
+  background: white;
+  width:33%;
+  height: 70%;
+}
+.popupButtonClose {
+  color: #3c8dd5;
+  background: none;
+  border: none;
+  float: right;
+  padding-top: 8px;
+  padding-right: 10px;
+  font-size: 16px;
+  margin-top: 150px;
+  /* margin-right: 50px; */
+}
+.popupButtonSave {
+  color: white;
+  background-color: #3c8dd5;
+  float: right;
+  border: none;
+  padding: 8px;
+  font-size: 16px;
+}
+
+input[placeholder="Enter author name" ] {  
+  width: 86%;
+  padding: 17px;
+}
+input[placeholder="Enter blog here" ] {
+   width: 86%;
+  padding: 17px;
+}
+button.submit1 {
+  margin-top: 35%;
+  margin-left: 75%;
+}
+
+label {
+  margin-right: 92%;
+}
+ 
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
