@@ -1,24 +1,24 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { signup } from "../../../redux/actions/auth";
-import { emailOtp , phoneOtp } from "../../../redux/actions/verify";
+import { emailOtp, phoneOtp } from "../../../redux/actions/verify";
 
 function Signup() {
-    const initialState={ email:"", password:"" , phone:"" , fullName:"" };
-    const [ formData , setFormData ] = useState(initialState);
-    
-    const dispatch = useDispatch();
-    const history= useHistory();
+    const initialState = { email: "", password: "", phone: "", fullName: "" };
+    const [formData, setFormData] = useState(initialState);
 
-    const handleSubmit = (e) => { 
+    const dispatch = useDispatch();
+    const history = useHistory();
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(signup(formData,history))
-       .then(res=>{
-           localStorage.setItem("email",formData.email);
-           localStorage.setItem("phone", formData.phone);
-           dispatch(emailOtp());
-       })
+        dispatch(signup(formData, history))
+            .then(res => {
+                localStorage.setItem("email", formData.email);
+                localStorage.setItem("phone", formData.phone);
+                dispatch(emailOtp());
+            })
     }
     return (
         <>
@@ -28,50 +28,50 @@ function Signup() {
                 </h4>
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <input                           
+                        <input
                             name="email"
                             type="email"
                             placeholder="Enter your email"
                             className="input-group"
                             value={formData.email}
-                            onChange={(e)=>{
+                            onChange={(e) => {
                                 setFormData({
                                     ...formData,
-                                    [e.target.name] : e.target.value
+                                    [e.target.name]: e.target.value
                                 });
                             }}
                         />
                     </div>
                     <div>
-                        <input                           
+                        <input
                             name="phone"
                             type="phone"
                             className="input-group"
                             placeholder="Enter your phone number (with country code)"
                             value={formData.phone}
-                            onChange={(e)=>{
+                            onChange={(e) => {
                                 setFormData({
                                     ...formData,
-                                    [e.target.name] : e.target.value
+                                    [e.target.name]: e.target.value
                                 });
                             }}
-                            
+
                         />
                     </div>
                     <div>
-                        <input                           
+                        <input
                             name="fullName"
                             placeholder="Enter your full name"
                             type="text"
                             className="input-group"
                             value={formData.fullName}
-                            onChange={(e)=>{
+                            onChange={(e) => {
                                 setFormData({
                                     ...formData,
-                                    [e.target.name] : e.target.value
+                                    [e.target.name]: e.target.value
                                 });
                             }}
-                            
+
                         />
                     </div>
                     <div>
@@ -81,23 +81,23 @@ function Signup() {
                             type="password"
                             className="input-group"
                             value={formData.password}
-                            onChange={(e)=>{
+                            onChange={(e) => {
                                 setFormData({
                                     ...formData,
-                                    [e.target.name] : e.target.value
+                                    [e.target.name]: e.target.value
                                 });
                             }}
                         />
                     </div>
                     <div>
                         <button
-                        className="btn-sub"
-                       type="submit"
+                            className="btn-sub"
+                            type="submit"
                         >
-                     Signup
+                            Signup
                         </button>
                     </div>
-                </form> 
+                </form>
             </div>
         </>
     )

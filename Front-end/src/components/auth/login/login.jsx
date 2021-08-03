@@ -22,15 +22,15 @@ function Login() {
                 <form onSubmit={handleSubmit}>
                     <div>
                         <input
-                           name="email"
-                           type="email" 
-                           placeholder="Enter your e-mail"
-                           className="input-group"
-                           value={formData.email}
-                           onChange={(e)=>{
-                               setFormData({
-                                   ...formData,
-                                 
+                            name="email"
+                            type="email"
+                            placeholder="Enter your e-mail"
+                            className="input-group"
+                            value={formData.email}
+                            onChange={(e) => {
+                                setFormData({
+                                    ...formData,
+
                                 })
                             }}
                         />

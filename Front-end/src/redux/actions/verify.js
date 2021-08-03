@@ -12,7 +12,7 @@ export const emailOtp = () => async (dispatch) => {
     }
 }
 
-export const emailOtpVerify = (otp , history) => async (dispatch) => {
+export const emailOtpVerify = (otp, history) => async (dispatch) => {
     try {
         const email = localStorage.getItem('email')
         const { data } = await api.emailOtpVerify(email, otp);

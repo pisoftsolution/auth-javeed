@@ -1,5 +1,5 @@
 import * as api from "../api";
-import { SIGNUP, LOGIN , LOGOUT } from "../constants";
+import { SIGNUP, LOGIN, LOGOUT } from "../constants";
 
 
 
@@ -11,8 +11,7 @@ export const signup = (formData, history) => async (dispatch) => {
         history.push('/verify/email');
         return data;
     } catch (e) {
-        
-        alert(e?.response?.data?.msg);
+      alert(e?.response?.data?.msg);
     }
 };
 
@@ -23,17 +22,17 @@ export const login = (formData, history) => async (dispatch) => {
         dispatch({ type: LOGIN, data });
         alert("Login successful");
         history.push('/');
-        localStorage.setItem("token",data.token);
+        localStorage.setItem("token", data.token);
         return data;
     } catch (e) {
         alert(e?.response?.data?.msg);
     }
 };
-export const logout = ( history) => async (dispatch) => {
+export const logout = (history) => async (dispatch) => {
     try {
         dispatch({ type: LOGOUT });
         alert("Logout successful");
-        history.push('/');        
+        history.push('/');
     } catch (e) {
         console.log(e);
         alert(e?.response?.data?.msg);

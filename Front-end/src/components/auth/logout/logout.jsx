@@ -5,7 +5,6 @@ import { logout } from "../../../redux/actions/auth";
 
 
 function Logout() {
-   
     const dispatch = useDispatch();
     const history= useHistory();
 

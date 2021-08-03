@@ -1,8 +1,8 @@
-import { SIGNUP , LOGIN , LOGOUT } from "../constants";
+import { SIGNUP, LOGIN, LOGOUT } from "../constants";
 
-export default (state = { authData: null } , action) => {
+export default (state = { authData: null }, action) => {
     switch (action.type) {
-    case SIGNUP:
+        case SIGNUP:
         console.log(action?.data);
         return {
             ...state,
@@ -17,11 +17,11 @@ export default (state = { authData: null } , action) => {
         case LOGOUT:
         localStorage.clear();
         return {
-            ...state,       
+            ...state,
         }
-    default:
+        default:
         return {
             ...state
-        }     
+        }
     }
 };

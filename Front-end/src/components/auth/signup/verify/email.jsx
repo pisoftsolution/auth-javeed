@@ -14,7 +14,7 @@ function Signup() {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(emailOtpVerify(formData.emailOtp,history))
-    }
+       }
     return (
         <>
             <div className="card">

@@ -9,8 +9,7 @@ exports.verify = (req, res, next) => {
         jwt.verify(token.split(" ")[1],secret, (err, value) =>{
             if (err){
                 res.status(500).json({msg: "Failed to authenticate"});
-            }
-            else {
+            } else {
                 next();
             }
         })
