@@ -8,18 +8,18 @@ router.get('/login',(req,res)=>{
     User.findOne({email:req.body.email})
     .then(user=>{
         if (user){
-            bcrypt.compare(req.body.password, user.password, (error,match)=>{
-            if(error){
-                res.status(400).json({error});
-            }else if (match) {
-                const token = jwt.sign({id:user._id, email: user._email}, "authorization" ,{
-                    expiresIn: 60 * 60 * 12 * 24 
-                } )
-                res.status(200).json({msg:"You can login", token : token});
-            }else{
-                res.status(400).json({msg:"Incorrect password"});
-            }
-            })
+        bcrypt.compare(req.body.password, user.password, (error,match)=>{
+        if (error){
+            res.status(400).json({error});
+        } else if (match) {
+            const token = jwt.sign({id:user._id, email: user._email}, "authorization" ,{
+            expiresIn: 60 * 60 * 12 * 24 
+        })
+            res.status(200).json({msg:"You can login", token : token});
+        } else{
+            res.status(400).json({msg:"Incorrect password"});
+        }
+        })
         } 
         else
         {
@@ -32,11 +32,10 @@ router.post('/signup',(req,res)=>{
     User.findOne({email:req.body.email})
     .then(user=>{
         if (user){
-            res.status(400).json({msg:"user already exits"}); 
+        res.status(400).json({msg:"user already exits"}); 
         } 
-        
-    })
-    bcrypt.hash(req.body.password , 10 , (error , hash)=>{
+        })
+        bcrypt.hash(req.body.password , 10 , (error , hash)=>{
         if(error)
         {
             res.status(400).json(error);

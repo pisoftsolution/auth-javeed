@@ -13,6 +13,11 @@ function PhoneVerify() {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(phoneOtpVerify(formData.phoneOtp))
+        .then((res)=>{
+            if (res) {
+                history.push('/blogs');
+            }
+        })
     }
     return (
         <>

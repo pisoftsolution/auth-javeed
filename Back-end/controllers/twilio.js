@@ -1,6 +1,7 @@
 require('dotenv').config();
 const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, VERIFICATION_SID} = process.env;
 const twilio = require('twilio')( TWILIO_ACCOUNT_SID,TWILIO_AUTH_TOKEN );
+const User = require ('../models/User');
 
 exports.phoneOtpSend = async (req,res)=>{                  
     const channel = 'sms';

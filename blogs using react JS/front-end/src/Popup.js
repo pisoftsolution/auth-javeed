@@ -1,23 +1,23 @@
 import React from 'react';
 import './App.css';
 
-function Popup({ closePopup }) {
+function Popup({ closePopup , id: data }) {
   return (
     <div className="popup">
       <div className="popup_inner">
-        <h1>ADD USER</h1>
+        <h1>EDIT USER</h1>
        <form>
            <label>Author</label>
-           <input type="text" placeholder="Enter author name" /><br /><br />
+           <input type="text" placeholder="Enter author name" ></input><br /><br />
            <label>Text</label>
-           <input type="text" placeholder="Enter blog here"/>
+           <input type="text" placeholder="Enter blog here"></input>
        </form>
         <div>
-         
+        <button className="submit1">SUBMIT</button>
           <button className="popupButtonClose" onClick={closePopup}>
             cancel
           </button>
-          <button className="submit1">ADD</button>
+         
         </div>
       </div>
     </div>

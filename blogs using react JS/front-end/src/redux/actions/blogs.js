@@ -36,11 +36,3 @@ export const deleteBlog = (formData) => async (dispatch)=>{
         console.log("error");
     }
 }
-    /*try{
-       await api.deleteBlog(data);
-        // dispatch({type: ADD_BLOG, data});
-    }catch (e){
-        // alert("Error");
-        console.log(e)
-    }
-}*/

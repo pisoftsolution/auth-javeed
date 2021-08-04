@@ -22,8 +22,6 @@ exports.addBlog = (req,res) => {
         
 }
 
-
-
 exports.editBlog = (req,res) => {
     if(!req.body.text ||
         !req.body.author ||

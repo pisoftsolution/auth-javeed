@@ -37,7 +37,7 @@ export const phoneOtp = () => async (dispatch) => {
     }
 }
 
-export const phoneOtpVerify = (otp, history) => async (dispatch) => {
+export const phoneOtpVerify = (otp ) => async (dispatch) => {
     try {
         const phone = localStorage.getItem('phone')
         const email = localStorage.getItem('email')
@@ -46,7 +46,6 @@ export const phoneOtpVerify = (otp, history) => async (dispatch) => {
         }
         const { data } = await api.phoneOtpVerify(formData, email, phone);
         dispatch({ type: PHONE_OTP_VERIFY, data });
-        history.push('/login')
         return data;
     } catch (e) {
         alert(e?.response?.data?.msg);

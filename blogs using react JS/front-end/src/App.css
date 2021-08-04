@@ -1,5 +1,5 @@
 form{
-  margin-top: 80px;
+  margin-top: 30px;
 }
 table {
  justify-content: center;
@@ -15,6 +15,8 @@ td, th {
 }
 .App {
     text-align: center;
+    width: 50%;
+    margin-left: 300px;
   }
   
   
@@ -44,7 +46,7 @@ button.btn2 {
 .popup {
   position: fixed;
   width: 100%;
-  height: 100%;
+  height: 600px;
   margin: auto;
   background-color: rgba(88, 97, 81, 0.5);
   top: 0;
@@ -53,13 +55,14 @@ button.btn2 {
   bottom: 0;
 }
   
+
 .popup_inner {
   position: absolute;
   padding: 20px;
   left: 25%;
   right: 25%;
-  top: 25%;
-  bottom: 25%;
+  top: 10%;
+  bottom: 5%;
   margin: auto;
   background: white;
   width:33%;
@@ -70,10 +73,10 @@ button.btn2 {
   background: none;
   border: none;
   float: right;
-  padding-top: 8px;
+  padding-top: 10px;
   padding-right: 10px;
   font-size: 16px;
-  margin-top: 150px;
+  margin-top: 10px;
   /* margin-right: 50px; */
 }
 .popupButtonSave {
@@ -83,6 +86,7 @@ button.btn2 {
   border: none;
   padding: 8px;
   font-size: 16px;
+  
 }
 
 input[placeholder="Enter author name" ] {  
@@ -94,14 +98,14 @@ input[placeholder="Enter blog here" ] {
   padding: 17px;
 }
 button.submit1 {
-  margin-top: 35%;
-  margin-left: 75%;
+  margin-top: 15px;
+  margin-left: 7px;
 }
 
 label {
   margin-right: 92%;
 }
- 
+
   
   
   
