@@ -1,4 +1,4 @@
-import { GET_BLOGS, ADD_BLOG } from "../constants";
+import { GET_BLOGS, ADD_BLOG, EDIT_BLOG, DELETE_BLOG } from "../constants";
 
 export default (state = {blogsData: null},action)=>{
     switch(action.type){
@@ -14,6 +14,18 @@ export default (state = {blogsData: null},action)=>{
             ...state,
             blogsData: action?.data
         }
+        // case EDIT_BLOG:
+        //     console.log(action?.data);
+        //     return {
+        //     ...state,
+        //     blogsData: action?.data
+        // }
+        // case DELETE_BLOG:
+        //     console.log(action?.data);
+        //     return {
+        //     ...state,
+        //     blogsData: action?.data
+        // }
         default:
         return {
             ...state

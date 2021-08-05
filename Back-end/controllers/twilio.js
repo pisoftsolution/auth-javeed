@@ -13,7 +13,7 @@ exports.phoneOtpSend = async (req,res)=>{
         return res.status(200).send({msg: "Verify otp send"});
     } catch(e){
         console.log(e);
-        return res.status(400).send({msg: e});
+        return res.status(400).send({msg: e});  
     }
 }
 

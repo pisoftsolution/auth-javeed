@@ -21,8 +21,8 @@ export const login = (formData, history) => async (dispatch) => {
         const { data } = await api.login(formData);
         dispatch({ type: LOGIN, data });
         alert("Login successful");
-        history.push('/');
         localStorage.setItem("token", data.token);
+        history.push('/');
         return data;
     } catch (e) {
         alert(e?.response?.data?.msg);

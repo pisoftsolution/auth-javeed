@@ -7,12 +7,15 @@ import EmailVerifyComponent from './components/auth/signup/verify/email';
 import HomeComponent from './components/home/home';
 import PhoneVerifyComponent from './components/auth/signup/verify/phone';
 import {Route, Switch} from 'react-router-dom';
+import Blogs from './components/blogs/blogs';
 
+ 
 
-function App() {
+function App() { 
   return (
     <div className="App">
       <Switch>
+        <Route exact path = '/blogs' component={Blogs}/>
         <Route exact path='/' component={HomeComponent} />
         <Route exact path='/signup' component={Signup} />
         <Route exact path='/login' component={Login}/>

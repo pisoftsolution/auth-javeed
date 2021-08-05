@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { phoneOtpVerify } from '../../../../redux/actions/verify';
+import {Button} from 'react-bootstrap';
 
 function PhoneVerify() {
     const initialState = { phoneOtp: "" }
@@ -15,7 +16,7 @@ function PhoneVerify() {
         dispatch(phoneOtpVerify(formData.phoneOtp))
         .then((res)=>{
             if (res) {
-                history.push('/blogs');
+                history.push('/');
             }
         })
     }
@@ -40,10 +41,10 @@ function PhoneVerify() {
                         />
                     </div>
                     <div>
-                        <button type="submit"
+                        <Button type="submit"
                             className="signup-button"
                         >Next
-                        </button>
+                        </Button>
                     </div>
                 </form>
             </div>

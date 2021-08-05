@@ -11,6 +11,13 @@ export const addBlog = (formData) => {
     return axios.post(`${url}/blogs/add`,formData)
 };
 
+export const editBlog = (data) =>{
+    return axios.put(`${url}/Blogs/blog`, data)
+};
+export const deleteBlog = (data) =>{
+    return axios.delete(`${url}/Blogs/blog?id=${data.id}`, data)
+};
+
 //auth
 export const signup = (formData) => {
     return axios.post(`${url}/auth/signup`, formData)
