@@ -1,23 +1,20 @@
 import axios from "axios";
-
 export const url = "http://localhost:8096/api";
 
 //blogs
-export const getBlogs = () => {
-    return axios.get(`${url}/blogs/blogs`)
+export const getBlogs = () =>{
+    return axios.get(`${url}/blog/blog`)
 };
-
-export const addBlog = (formData) => {
-    return axios.post(`${url}/blogs/add`,formData)
+export const addBlog = (formData) =>{
+    return axios.post(`${url}/blog/add`, formData)
 };
 
 export const editBlog = (data) =>{
-    return axios.put(`${url}/Blogs/blog`, data)
+    return axios.put(`${url}/blog/blog`, data)
 };
 export const deleteBlog = (data) =>{
-    return axios.delete(`${url}/Blogs/blog?id=${data.id}`, data)
+    return axios.delete(`${url}/blog/blog?id=${data.id}`, data)
 };
-
 //auth
 export const signup = (formData) => {
     return axios.post(`${url}/auth/signup`, formData)

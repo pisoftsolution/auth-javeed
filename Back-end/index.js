@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const cors = require('cors');
-
 const authRoute = require('./routes/auth');
 const sgRoute = require('./routes/sendgrid');
 const twilio = require('./routes/twilio');

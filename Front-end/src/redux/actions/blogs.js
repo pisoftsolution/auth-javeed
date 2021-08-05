@@ -19,20 +19,20 @@ export const addBlog = (formData) => async (dispatch) => {
         alert(e?.response?.data?.msg);
     }
 }
-// export const editBlog = (formData) => async (dispatch)=>{
-//     try{
-//         const { data } = await api.editBlog(formData);
-//         dispatch({type: EDIT_BLOG, data});
-//     }catch (e){
-//         alert(e?.response?.data?.msg);
-//     }
-// }
+export const editBlog = (formData) => async (dispatch)=>{
+    try{
+        const { data } = await api.editBlog(formData);
+        dispatch({type: EDIT_BLOG, data});
+    }catch (e){
+        alert(e?.response?.data?.msg);
+    }
+}
 
-// export const deleteBlog = (formData) => async (dispatch)=>{
-//     try{
-//         const { data } = await api.deleteBlog(formData);
-//         dispatch({type: DELETE_BLOG, data});
-//     } catch (e){
-//         console.log("error");
-//     }
-// }
+export const deleteBlog = (formData) => async (dispatch)=>{
+    try{
+        const { data } = await api.deleteBlog(formData);
+        dispatch({type: DELETE_BLOG, data});
+    } catch (e){
+        console.log("error");
+    }
+}

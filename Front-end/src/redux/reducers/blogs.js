@@ -14,18 +14,18 @@ export default (state = {blogsData: null},action)=>{
             ...state,
             blogsData: action?.data
         }
-        // case EDIT_BLOG:
-        //     console.log(action?.data);
-        //     return {
-        //     ...state,
-        //     blogsData: action?.data
-        // }
-        // case DELETE_BLOG:
-        //     console.log(action?.data);
-        //     return {
-        //     ...state,
-        //     blogsData: action?.data
-        // }
+        case EDIT_BLOG:
+            console.log(action?.data);
+            return {
+            ...state,
+            blogsData: action?.data
+        }
+        case DELETE_BLOG:
+            console.log(action?.data);
+            return {
+            ...state,
+            blogsData: action?.data
+        }
         default:
         return {
             ...state
