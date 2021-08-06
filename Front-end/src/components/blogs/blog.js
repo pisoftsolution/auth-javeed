@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 // import { getBlogs, addBlog, editBlog, deleteBlog } from './redux/actions/blogs';
-// import Popup from './Popup';
 import {Table} from 'react-bootstrap';
 import { getBlogs , editBlog , addBlog , deleteBlog } from '../../redux/actions/blogs';
+import Popup from '../../Popup';
 // import { getBlogs , editBlog , addBlog , deleteBlog } from '../../redux/api';
+// import Popup from './Popup';
+
 
 
 
@@ -16,7 +18,7 @@ function Blog() {
   const blogs = useSelector(state => state.blogsReducer?.blogsData?.b);
 
   //Edit
-  const editHandler = (data) => {  
+  const editHandler = (data) =>  {            
   dispatch(editBlog({ id: data }));
   }
   //delete
@@ -37,9 +39,9 @@ function Blog() {
     })
   }
 
-//    function togglePopup() {
-//     setShowBulkAdd(!showBulkAdd);
-//   }
+   function togglePopup() {
+    setShowBulkAdd(!showBulkAdd);
+  }
 
   return (
     <div className="App">
@@ -71,12 +73,12 @@ function Blog() {
           /><br /><br />
           <button type="submit">save</button>
         </form>
-        {/* <button className="userBtn" onClick={togglePopup}>Add User</button>
+        {/* <button className="userBtn" onClick={togglePopup}>Add User</button> */}
         {showBulkAdd ? (
           <Popup text="Close Me" closePopup={togglePopup} />
-        ) : null} */}
+        ) : null}
       </div>
-      <Table striped bordered hover>
+      <Table className="table" striped bordered hover>
         <tr>
           <th>Author</th>
           <th >Text</th>
@@ -91,13 +93,14 @@ function Blog() {
                   <td>{b.text}</td>
                   <td>
                     <div>
-                    {/* <button
+                    <button
                       className="btn1" onClick={()=>editHandler(b._id)}
                       onClick={togglePopup}>Edit
                    </button>
                   {showBulkAdd ? (
                     <Popup closePopup={togglePopup} />
-                      ) : null} */}
+                      ) : null}
+                      {/* <button className="btn2" mr-2>Edit</button> */}
                       <button className="btn2" onClick={() => deleteHandler(b._id)}>Delete</button>
                     </div>
                   </td>
