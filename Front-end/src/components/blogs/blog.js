@@ -1,12 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import {Table , Button} from 'react-bootstrap';
-import { getBlogs , editBlog , addBlog , deleteBlog } from '../../redux/actions/blogs';
+import { Table, Button } from 'react-bootstrap';
+import { getBlogs, editBlog, addBlog, deleteBlog } from '../../redux/actions/blogs';
 import Modal from 'react-bootstrap/Modal'
 import Popup from '../../Popup';
-import Add from './Add';
-
-
 
 
 function Blog() {
@@ -25,50 +22,59 @@ function Blog() {
   //delete
   const deleteHandler = (data) => {
     dispatch(deleteBlog({ id: data }))
-    .then(res=>{
-      setShouldCall(!shouldCall);
-    })
+      .then(res => {
+        setShouldCall(!shouldCall);
+      })
   }
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(getBlogs())
-  },[shouldCall])
+  }, [shouldCall])
 
   const handleEditSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-    dispatch(editBlog(formData , editId))
-    .then(res=>{
-      setShouldCall(!shouldCall);
-      setShow(false);
-      setFormData(initialState);
-    })
+    dispatch(editBlog(formData, editId))
+      .then(res => {
+        setShouldCall(!shouldCall);
+        setShow(false);
+        setFormData(initialState);
+      })
   }
-  
-  // const handleAddSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(formData);
-  //   dispatch(addBlog(formData))
-  //   .then(res => {
-  //     setShouldCall(!shouldCall);
-  //     console.log(res);
-  //   })
-  // }
+
+  const handleAddSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    dispatch(addBlog(formData, blogs))
+      .then(res => {
+        setShouldCall(!shouldCall);
+        console.log(res);
+      })
+  }
 
   function togglePopup() {
     setShowBulkAdd(!showBulkAdd);
   }
-  const [show, setShow] = useState(false);
 
+  const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = (id, author, text) => {
     setEditId(id)
     setFormData({
-      author : author,
-      text : text
+      author: author,
+      text: text
     })
     setShow(true);
   }
 
+  const [shown, setShown] = useState(false);
+  const handleCloseUp = () => setShown(false);
+  const handleShowUp = (author, text) => {
+    setFormData({
+      author: author,
+      text: text
+    })
+    setShown(true);
+  }
 
   return (
     <div className="App">
@@ -78,43 +84,86 @@ function Blog() {
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={handleEditSubmit}>
-              <input 
-                name="author"
-                placeholder="Author Name"
-                type="text"
-                className=""
-                value={formData.author}
-                onChange={(e)=>{
-                  setFormData({
-                    ...formData,
-                    [e.target.name] : e.target.value,
-                  })
-                }}
-             required 
-             /><br/><br/>
-             <textarea
-                name="text"
-                placeholder="Enter Blog Here"
-                value={formData.text}
-                onChange={(e)=>{
-                  setFormData({
-                    ...formData,
-                    [e.target.name] : e.target.value,
-                  })
-                }}
-             required 
-             /><br/><br/>
-             <button
+            <input
+              name="author"
+              placeholder="Author Name"
+              type="text"
+              className=""
+              value={formData.author}
+              onChange={(e) => {
+                setFormData({
+                  ...formData,
+                  [e.target.name]: e.target.value,
+                })
+              }}
+              required
+            /><br /><br />
+            <textarea
+              name="text"
+              placeholder="Enter Blog Here"
+              value={formData.text}
+              onChange={(e) => {
+                setFormData({
+                  ...formData,
+                  [e.target.name]: e.target.value,
+                })
+              }}
+              required
+            /><br /><br />
+            <button
               type="submit"
             >save</button>
           </form>
         </Modal.Body>
       </Modal>
-      
-      <div className="btn">
-        <Add />       
+
+      <div>
+        <Modal show={shown} onHide={handleCloseUp} animation={false}>
+          <Modal.Header>
+            <Modal.Title>ADD Blog</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <form onSubmit={handleAddSubmit}>
+              <input
+                name="author"
+                placeholder="Author Name"
+                type="text"
+                onChange={(e) => {
+                  setFormData({
+                    ...formData,
+                    [e.target.name]: e.target.value,
+                  })
+                }}
+                required
+              /><br /><br />
+              <textarea
+                name="text"
+                placeholder="Enter Blog Here"
+                onChange={(e) => {
+                  setFormData({
+                    ...formData,
+                    [e.target.name]: e.target.value,
+
+                  })
+                }}
+                required
+              /><br /><br />
+              <div class="row">
+              <div class="col-md-4">
+              <button type="submit" class="btn btn-primary mr-5">Save</button>
+              </div>
+              <div class="col-md-4"></div>
+              <div class="col-md-4" id="close">
+              <button type="button" class="btn btn-danger" onClick={() => handleCloseUp(false)} >Close</button>
+              </div>
+              </div>
+              {/* <button   type="submit" >save</button>
+              <button className="exit" onClick={() => handleCloseUp(false)}  >Close</button> */}
+              </form>
+          </Modal.Body>
+        </Modal>
+        <button onClick={(author,text) => handleShowUp(author,text)}>ADD </button>
       </div>
-      
       <Table striped bordered hover>
         <tr>
           <th>Author</th>
@@ -130,14 +179,14 @@ function Blog() {
                   <td>{b.text}</td>
                   <td>
                     <div>
-                    <button
-                      className="btn1" onClick={()=>editHandler(b._id)}
-                      onClick={()=>handleShow(b._id , b.author , b.text)}>Edit
-                   </button>
-                  {showBulkAdd ? (
-                    <Popup closePopup={togglePopup} />
+                      <button
+                        className="btn1" onClick={() => editHandler(b._id)}
+                        onClick={() => handleShow(b._id, b.author, b.text)}>Edit
+                      </button>
+                      {showBulkAdd ? (
+                        <Popup closePopup={togglePopup}/>
                       ) : null}
-                      
+
                       <Button className="btn2" onClick={() => deleteHandler(b._id)}>Delete</Button>
                     </div>
                   </td>

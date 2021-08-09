@@ -3,7 +3,7 @@ Table {
   border-collapse: collapse;
   justify-content: center;
   display: inline-table;
-  margin-top: 27px;  
+  margin-top: 40px;  
 }
 table.table.table-striped.table-bordered.table-hover {
   width: 90%;
@@ -20,6 +20,7 @@ tr:nth-child(even) {
 }
 .App {
     text-align: center;
+    margin-top: 100px;
   }
   
 .App-logo {
@@ -52,6 +53,19 @@ padding: 9px;
 background: green;
 color: white;
 border: none;
+}
+.modal-body {
+  background-color: #DCE1E3;
+}
+input[type="text"] {
+  width: 100%;
+}
+textarea {
+  width: 100%;
+}
+#close{
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .popup {
