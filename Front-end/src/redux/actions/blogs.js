@@ -19,9 +19,9 @@ export const addBlog = (formData) => async (dispatch) => {
         alert(e?.response?.data?.msg);
     }
 }
-export const editBlog = (formData) => async (dispatch)=>{
+export const editBlog = (formData , id) => async (dispatch)=>{
     try{
-        const { data } = await api.editBlog(formData);
+        const { data } = await api.editBlog(formData , id);
         dispatch({type: EDIT_BLOG, data});
     }catch (e){
         alert(e?.response?.data?.msg);

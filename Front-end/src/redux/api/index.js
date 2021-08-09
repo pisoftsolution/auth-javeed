@@ -9,8 +9,8 @@ export const addBlog = (formData) =>{
     return axios.post(`${url}/blog/add`, formData)
 };
 
-export const editBlog = (data) =>{
-    return axios.put(`${url}/blog/blog`, data)
+export const editBlog = (data , id) =>{
+    return axios.put(`${url}/blog/blog?id=${id}`, data)
 };
 export const deleteBlog = (data) =>{
     return axios.delete(`${url}/blog/blog?id=${data.id}`, data)
