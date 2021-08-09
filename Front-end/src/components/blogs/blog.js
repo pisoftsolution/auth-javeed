@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import {Table} from 'react-bootstrap';
+import {Table , Button} from 'react-bootstrap';
 import { getBlogs , editBlog , addBlog , deleteBlog } from '../../redux/actions/blogs';
 import Modal from 'react-bootstrap/Modal'
 import Popup from '../../Popup';
 import Add from './Add';
+
 
 
 
@@ -114,7 +115,7 @@ function Blog() {
         <Add />       
       </div>
       
-      <table striped bordered hover>
+      <Table striped bordered hover>
         <tr>
           <th>Author</th>
           <th >Text</th>
@@ -137,14 +138,14 @@ function Blog() {
                     <Popup closePopup={togglePopup} />
                       ) : null}
                       
-                      <button className="btn2" onClick={() => deleteHandler(b._id)}>Delete</button>
+                      <Button className="btn2" onClick={() => deleteHandler(b._id)}>Delete</Button>
                     </div>
                   </td>
                 </tr>
               </>
             )
           }) : ''}
-      </table>
+      </Table>
     </div>
   )
 }

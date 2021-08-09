@@ -1,14 +1,13 @@
-table {
+Table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   justify-content: center;
   display: inline-table;
-  margin-top: 27px;
+  margin-top: 27px;  
+}
+table.table.table-striped.table-bordered.table-hover {
   width: 90%;
 }
-/* table.table.table.table-striped.table-bordered.table-hover{
-  width: 80%;
-} */
 
 td, th {
   border: 1px solid #dddddd;
@@ -28,7 +27,6 @@ tr:nth-child(even) {
   pointer-events: none;
 }
 button.btn1  {
-  margin-right: 10px;
   font-size: 14px;
   color: #fff;
   background-color: #17a2b8;
@@ -39,16 +37,14 @@ button.btn1  {
   width: 55px;
   height: 32px;
 }
-button.btn2 {
-color: #fff;
-  background-color: #dc3545;
-  border-color: #dc3545;
+button.btn2 { 
 font-size: 14px;
 text-decoration: none;
   border: none;
   padding: 4px;
   width: 55px;
   height: 32px;
+  margin-left: 5px;
 }
 .userBtn {
 margin-left: -91vh;
