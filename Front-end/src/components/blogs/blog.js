@@ -3,11 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Table, Button } from 'react-bootstrap';
 import { getBlogs, editBlog, addBlog, deleteBlog } from '../../redux/actions/blogs';
 import Modal from 'react-bootstrap/Modal'
-import Popup from '../../Popup';
+
 
 
 function Blog() {
-  const [showBulkAdd, setShowBulkAdd] = useState(false);
   const initialState = { author: "", text: "" };
   const [formData, setFormData] = useState(initialState);
   const [editId, setEditId] = useState("");
@@ -47,12 +46,9 @@ function Blog() {
     dispatch(addBlog(formData, blogs))
       .then(res => {
         setShouldCall(!shouldCall);
+        setShown(false);
         console.log(res);
       })
-  }
-
-  function togglePopup() {
-    setShowBulkAdd(!showBulkAdd);
   }
 
   const [show, setShow] = useState(false);
@@ -116,7 +112,6 @@ function Blog() {
           </form>
         </Modal.Body>
       </Modal>
-
       <div>
         <Modal show={shown} onHide={handleCloseUp} animation={false}>
           <Modal.Header>
@@ -157,12 +152,13 @@ function Blog() {
               <button type="button" class="btn btn-danger" onClick={() => handleCloseUp(false)} >Close</button>
               </div>
               </div>
-              {/* <button   type="submit" >save</button>
-              <button className="exit" onClick={() => handleCloseUp(false)}  >Close</button> */}
-              </form>
+            </form>
           </Modal.Body>
         </Modal>
-        <button onClick={(author,text) => handleShowUp(author,text)}>ADD </button>
+        {/* <button onClick={(author,text) => handleShowUp(author,text)}>ADD </button> */}
+        <div class="col-md"> 
+          <button type="button" class="btn-add btn-primary" onClick={(author,text) => handleShowUp(author,text)}>ADD Blog</button>
+        </div>
       </div>
       <Table striped bordered hover>
         <tr>
@@ -183,11 +179,8 @@ function Blog() {
                         className="btn1" onClick={() => editHandler(b._id)}
                         onClick={() => handleShow(b._id, b.author, b.text)}>Edit
                       </button>
-                      {showBulkAdd ? (
-                        <Popup closePopup={togglePopup}/>
-                      ) : null}
-
-                      <Button className="btn2" onClick={() => deleteHandler(b._id)}>Delete</Button>
+                      <Button className="btn2  btn-danger" onClick={() => deleteHandler(b._id)}>Delete</Button>
+                      
                     </div>
                   </td>
                 </tr>

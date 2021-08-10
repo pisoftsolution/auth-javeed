@@ -67,6 +67,12 @@ textarea {
   display: flex;
   flex-direction: row-reverse;
 }
+.btn-add{
+  border: none;
+  display: flex;
+  float: right;
+  margin-right: 250px;
+}
 
 .popup {
 position: fixed;
