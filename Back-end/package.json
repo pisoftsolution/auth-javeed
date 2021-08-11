@@ -25,5 +25,9 @@
     "mongoose": "^5.13.2",
     "nodemon": "^2.0.9",
     "twilio": "^3.65.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.24.0"
   }
 }
