@@ -1,5 +1,5 @@
-import * as api from "../api";
-import { SIGNUP, LOGIN, LOGOUT } from "../constants";
+import * as api from '../api';
+import { SIGNUP, LOGIN, LOGOUT } from '../constants';
 
 
 

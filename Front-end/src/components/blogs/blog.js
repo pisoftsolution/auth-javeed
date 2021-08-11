@@ -1,15 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
 import { Table, Button } from 'react-bootstrap';
 import { getBlogs, editBlog, addBlog, deleteBlog } from '../../redux/actions/blogs';
-import Modal from 'react-bootstrap/Modal'
-
-
+import Modal from 'react-bootstrap/Modal';
 
 function Blog() {
-  const initialState = { author: "", text: "" };
+  const initialState = { author: '', text: '' };
   const [formData, setFormData] = useState(initialState);
-  const [editId, setEditId] = useState("");
+  const [editId, setEditId] = useState('');
   const [shouldCall, setShouldCall] = useState(false);
   const dispatch = useDispatch();
   const blogs = useSelector(state => state.blogsReducer?.blogsData?.b);
@@ -17,17 +15,17 @@ function Blog() {
   //Edit
   const editHandler = (data) => {
     dispatch(editBlog());
-  }
+  };
   //delete
   const deleteHandler = (data) => {
     dispatch(deleteBlog({ id: data }))
       .then(res => {
         setShouldCall(!shouldCall);
-      })
-  }
+      });
+  };
   useEffect(() => {
-    dispatch(getBlogs())
-  }, [shouldCall])
+    dispatch(getBlogs());
+  }, [shouldCall]);
 
   const handleEditSubmit = (e) => {
     e.preventDefault();
@@ -37,8 +35,8 @@ function Blog() {
         setShouldCall(!shouldCall);
         setShow(false);
         setFormData(initialState);
-      })
-  }
+      });
+  };
 
   const handleAddSubmit = (e) => {
     e.preventDefault();
@@ -48,29 +46,28 @@ function Blog() {
         setShouldCall(!shouldCall);
         setShown(false);
         console.log(res);
-      })
-  }
+      });
+  };
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = (id, author, text) => {
-    setEditId(id)
+    setEditId(id);
     setFormData({
       author: author,
-      text: text
-    })
+      text: text,
+    });
     setShow(true);
-  }
-
+  };
   const [shown, setShown] = useState(false);
   const handleCloseUp = () => setShown(false);
   const handleShowUp = (author, text) => {
     setFormData({
       author: author,
-      text: text
-    })
+      text: text,
+    });
     setShown(true);
-  }
+  };
 
   return (
     <div className="App">
@@ -90,10 +87,11 @@ function Blog() {
                 setFormData({
                   ...formData,
                   [e.target.name]: e.target.value,
-                })
+                });
               }}
               required
-            /><br /><br />
+            /><br />
+            <br />
             <textarea
               name="text"
               placeholder="Enter Blog Here"
@@ -108,7 +106,9 @@ function Blog() {
             /><br /><br />
             <button
               type="submit"
-            >save</button>
+            >
+              save
+            </button>
           </form>
         </Modal.Body>
       </Modal>
@@ -138,7 +138,6 @@ function Blog() {
                   setFormData({
                     ...formData,
                     [e.target.name]: e.target.value,
-
                   })
                 }}
                 required
@@ -147,10 +146,10 @@ function Blog() {
               <div class="col-md-4">
               <button type="submit" class="btn btn-primary mr-5">Save</button>
               </div>
-              <div class="col-md-4"></div>
-              <div class="col-md-4" id="close">
-              <button type="button" class="btn btn-danger" onClick={() => handleCloseUp(false)} >Close</button>
-              </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4" id="close">
+                  <button type="button" class="btn btn-danger" onClick={() => handleCloseUp(false)} >Close</button>
+                </div>
               </div>
             </form>
           </Modal.Body>
@@ -179,8 +178,7 @@ function Blog() {
                         className="btn1" onClick={() => editHandler(b._id)}
                         onClick={() => handleShow(b._id, b.author, b.text)}>Edit
                       </button>
-                      <Button className="btn2  btn-danger" onClick={() => deleteHandler(b._id)}>Delete</Button>
-                      
+                      <Button className="btn2  btn-danger" onClick={() => deleteHandler(b._id)}>Delete</Button>                
                     </div>
                   </td>
                 </tr>
